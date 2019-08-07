@@ -14,6 +14,10 @@ var app =express();
 const bodyParser=require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
+app.use(function(req,res,next){
+    console.log("I'm at the top.!!!")
+})
 app.get('/',function(req,res){
     res.send('GET sent')
 });
