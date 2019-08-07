@@ -11,10 +11,23 @@ const site=http.createServer(function(req,res){
 
 var express=require('express');
 var app =express();
+const bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.get('/',function(req,res){
-    res.send('Hello World')
+    res.send('GET sent')
+});
+app.post('/',function(req,res){
+    console.log(req.body)
+    res.send('POST send')
+});
+app.put('/',function(req,res){
+    res.send('PUT sent')
+});
+app.delete('/',function(req,res){
+    res.send('DELETE sent')
 });
 
-app.listen(3000)
 
-site.listen(3000);
+app.listen(3000);
+
